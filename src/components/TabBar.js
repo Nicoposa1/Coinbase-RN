@@ -43,9 +43,6 @@ const TabBar = ({ state, navigation }) => {
           case "Prices":
             iconName = "cellular";
             break;
-          case "Settings": 
-            iconName = "settings";
-            break;
           default:
             iconName = "person";
             break;
