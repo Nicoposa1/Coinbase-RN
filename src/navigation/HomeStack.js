@@ -10,7 +10,7 @@ function HomeStack() {
     <Stack.Navigator screenOptions={{
       headerShown: false,
     }}>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="HomeStack" component={Home} />
       <Stack.Screen name="News" component={News} />
     </Stack.Navigator>
   );
