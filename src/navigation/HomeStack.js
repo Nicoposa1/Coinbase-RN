@@ -1,17 +1,19 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeStack from "../screens/Home";
+import Home from "../screens/Home";
 import News from "../screens/News";
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
-const HomeStack = () => {
+function HomeStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="HomeStack" component={HomeStack} />
+    <Stack.Navigator screenOptions={{
+      headerShown: false,
+    }}>
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="News" component={News} />
     </Stack.Navigator>
-  )
+  );
 }
 
 export default HomeStack;
