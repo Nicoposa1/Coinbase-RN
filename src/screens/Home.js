@@ -5,6 +5,7 @@ import CBButton from '../components/CBButton'
 import watchlist from "../store/reducers/watchlist"
 import { useSelector, useDispatch } from 'react-redux'
 import * as watchlistActions from '../store/actions/watchlist'
+import WatchlistItem from '../components/WatchlistItem'
 
 const Home = () => {
 
@@ -29,6 +30,15 @@ const Home = () => {
         <Text style={styles.title} >Welcom to Coinbase!</Text>
         <Text style={styles.subtitle} >Make your first investment today</Text>
         <CBButton title={"Get Started"} />
+        <WatchlistItem 
+          id={1}
+          symbol={"BTC"}
+          name={"Bitcoin"}
+          percentChange={-0.5}
+          price={24000}
+          drag={() => console.log('drag')}
+          isActive={true}
+        />
       </ScrollView>
     </SafeAreaView>
   )

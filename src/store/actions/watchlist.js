@@ -39,13 +39,23 @@ export const fetchCoinData = () => {
           coinDetail: coinDetails.CHANGEPCT24HOUR,
         });
       });
-      console.log(
-        // "🚀 ~ file: Watchlist.js ~ line 17 ~ return ~ coinData",
-        coinData
-      );
-      // console.log("🚀 ~ file: Watchlist.js ~ line 15 ~ return ~ cryptoResponseData", cryptoResponseData)
+      // console.log(coinData);
+
+      dispatch({
+        type: SET_WATCHLIST_DATA,
+        coinData: coinData,
+      });
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const updateCoinData = (newData) => {
+  return async (dispatch) => {
+    dispatch({
+      type: SET_WATCHLIST_DATA,
+      coinData: newData,
+    });
   };
 };
