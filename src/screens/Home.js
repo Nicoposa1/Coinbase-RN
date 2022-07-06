@@ -34,10 +34,10 @@ const Home = () => {
           id={1}
           symbol={"BTC"}
           name={"Bitcoin"}
-          percentChange={-0.5}
+          percentChange={20}
           price={24000}
           drag={() => console.log('drag')}
-          isActive={true}
+          isActive={false}
         />
       </ScrollView>
     </SafeAreaView>
@@ -47,10 +47,12 @@ const Home = () => {
 export default Home
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    backgroundColor: "#fff",
+  listItem: {
+    flexDirection: "row",
+    width: "100%",
+    height: 75,
+    padding: 16,
+    justifyContent: "space-between",
   },
   image: {
     height: 250,
