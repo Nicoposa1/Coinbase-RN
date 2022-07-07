@@ -1,17 +1,16 @@
-import { SET_WATCHLIST_DATA } from '../actions/watchlist'
+import { SET_WATCHLIST_DATA } from "../actions/watchlist";
 
 const initialState = {
-  watchlist: [],
-}
+  watchlistData: [],
+};
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case SET_WATCHLIST_DATA:
       return {
-        ...state, 
-        watchlist: action.payload,
-      }
+        watchlistData: action.coinData,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
