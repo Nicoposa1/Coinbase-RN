@@ -18,7 +18,6 @@ const WhatchlistItem = ({
   drag,
   isActive,
 }) => {
-  console.log(id, name);
   return (
     <TouchableHighlight
       underlayColor={isActive ? "white" : "#FAFBFE"}

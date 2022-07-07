@@ -36,9 +36,9 @@ const Whatchlist = ({ coinData }) => {
           onDragBegin={() =>
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           }
-          onDragEnd={({ data }) =>
-            dispatch(watchlistActions.updateCoinData(data))
-          }
+          onDragEnd={({data}) => {
+            dispatch(watchlistActions.updateCoinData(data));
+          }}
           renderItem={renderItem}
         />
       </View>
