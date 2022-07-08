@@ -13,20 +13,26 @@ import CBButton from "../components/CBButton";
 import { WatchlistState } from "../store/reducers/watchlist";
 import { useSelector, useDispatch } from "react-redux";
 import * as watchlistActions from "../store/actions/watchlist";
+import * as topmoversActions from '../store/actions/topmovers';
 
+import TopMoversList from "../components/TopMoversList";
 import Watchlist from "../components/Watchlist";
 
 
 const Home = () => {
   const watchlistData = useSelector(
     (state) => state.watchlist.watchlistData
-  );
+    );
+  const topMoversData = useSelector(
+    (state) => state.topmovers.topMoversData
+  )
 
   const dispatch = useDispatch();
 
   const loadData = () => {
     try {
       dispatch(watchlistActions.fetchCoinData());
+      dispatch(topmoversActions.fetchTopMoversData());
     } catch (err) {
       console.log(err);
     }
@@ -47,6 +53,7 @@ const Home = () => {
         <Text style={styles.subTitle}>Make your first investment today</Text>
         <CBButton title="Get Started" />
         <Watchlist coinData={watchlistData} />
+        <TopMoversList coinData={topMoversData} />
       </ScrollView>
     </SafeAreaView>
   );

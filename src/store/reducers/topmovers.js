@@ -1,16 +1,16 @@
-import { TOP_MOVERS_DATA } from "../actions/topmovers";
+import { SET_TOPMOVERS_DATA } from "../actions/topmovers";
 
 const initialState = {
-  topmovers: [],
+  watchlistData: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TOP_MOVERS_DATA:
+    case SET_TOPMOVERS_DATA:
       return {
-        ...state,
-        topmovers: action.coinData,
+        topMoversData: action.coinData,
       };
+    default:
+      return state;
   }
-  return state;
 };
