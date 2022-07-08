@@ -50,7 +50,6 @@ export const fetchTopMoversData = () => {
           price: cryptoData.USD.PRICE,
           percentChange: cryptoData.USD.CHANGEPCT24HOUR,
         });
-        console.log("🚀 ~ file: topmovers.js ~ line 53 ~ return ~ coinData", coinData)
 
         if (coinData.length === 6) {
           break;

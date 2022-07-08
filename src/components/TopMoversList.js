@@ -4,11 +4,11 @@ import TopMoversListItem from "./TopMoversListItem";
 
 const TopMoversList = ({ coinData }) => {
   return (
-    <View style={styles.list} >
+    <View style={styles.list}>
       <Text style={styles.topMoversText}>Top Movers</Text>
       <FlatList
         data={coinData}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
             <TopMoversListItem
               id={item.id}
@@ -17,12 +17,12 @@ const TopMoversList = ({ coinData }) => {
               percentChange={item.percentChange}
               name={item.name}
             />
-          )
+          );
         }}
         keyExtractor={(item) => item.id.toString()}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
-        snapToOffsets={[...Array(coinData.length)].map((x, i) => 158 * i + 162)}
+        // snapToOffsets={[...Array(coinData.length)].map((x, i) => 158 * i + 162)}
         contentContainerStyle={styles.topMoversContainer}
         decelerationRate={0}
         snapToAlignment="center"
@@ -41,12 +41,12 @@ const styles = StyleSheet.create({
     marginTop: 32,
     marginLeft: "6%",
   },
-  topMoversContainer:{
+  topMoversContainer: {
     height: 160,
-    paddingLeft: '6%',
+    paddingLeft: "6%",
   },
   list: {
     width: "100%",
-    alignSelf: 'flex-start',
-  }
+    alignSelf: "flex-start",
+  },
 });
