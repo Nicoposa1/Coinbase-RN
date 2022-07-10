@@ -13,16 +13,17 @@ import CBButton from "../components/CBButton";
 import { useSelector, useDispatch } from "react-redux";
 import * as watchlistActions from "../store/actions/watchlist";
 import * as topmoversActions from "../store/actions/topmovers";
-import * as newsActions from '../store/actions/news';
+import * as newsActions from "../store/actions/news";
 
 import TopMoversList from "../components/TopMoversList";
 import Watchlist from "../components/Watchlist";
 import NewsList from "../components/NewsList"
+// import NewsListItem from "../components/NewsListItem";
 
-const Home = () => {
+const Home = ({navigation}) => {
   const watchlistData = useSelector((state) => state.watchlist.watchlistData);
   const topMoversData = useSelector((state) => state.topmovers.topMoversData);
-  const newsData = useSelector((state) => state.news.newsData)
+  const newsData = useSelector((state) => state.news.newsData);
 
   const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ const Home = () => {
     try {
       dispatch(watchlistActions.fetchCoinData());
       dispatch(topmoversActions.fetchTopMoversData());
-      dispatch(newsActions.fetchNewsData())
+      dispatch(newsActions.fetchNewsData());
     } catch (err) {
       console.log(err);
     }
@@ -39,6 +40,12 @@ const Home = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  const viewMoreHandler = (newsData) => {
+    navigation.navigate("News", {
+      newsData: newsData,
+    } );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -52,7 +59,7 @@ const Home = () => {
         <CBButton title="Get Started" />
         <Watchlist coinData={watchlistData} />
         <TopMoversList coinData={topMoversData} />
-        <NewsList coinData={newsData} />
+        <NewsList isHomeScreen={true} newsData={newsData} viewMoreHandler={viewMoreHandler} />
       </ScrollView>
     </SafeAreaView>
   );
